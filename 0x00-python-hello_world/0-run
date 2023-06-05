@@ -1,3 +1,2 @@
 #!/bin/bash
-env_var="PYFILE"
-python3 "${!env_var}"
+python3 $PYFILE
