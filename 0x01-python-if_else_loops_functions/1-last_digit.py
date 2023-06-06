@@ -12,15 +12,19 @@ def get_last(number):
     return number
 
 
-if get_last(number) > 5:
-    print(
-        "Last digit of {} is {} "
-        "and is greater than 5".format(number, get_last(number))
-        )
-elif get_last(number) < 6 and get_last(number) > 0:
-    print(
-        "Last digit of {} is {} "
-        "and is less than 6 and not 0".format(number, get_last(number))
-        )
+if number < 0:
+    last = get_last(number) * (-1)
 else:
-    print("Last digit of {} is {} and is 0".format(number, get_last(number)))
+    last = get_last(number)
+if last > 5:
+    print(
+        "Last digit of {} is {} "
+        "and is greater than 5".format(number, last)
+        )
+elif last == 0:
+    print("Last digit of {} is {} and is 0".format(number, last))
+else:
+    print(
+        "Last digit of {} is {} "
+        "and is less than 6 and not 0".format(number, last)
+        )
