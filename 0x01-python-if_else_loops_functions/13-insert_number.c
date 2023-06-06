@@ -43,6 +43,11 @@ listint_t *insert_node(listint_t **head, int number)
 		prev = suiv;
 		suiv = suiv->next;
 	}
+	if (suiv == NULL)
+	{
+		add_nodeint_end(head, number);
+		free(new);
+	}
 	return (new);
 }
 /**
