@@ -2,4 +2,4 @@
 for alph in range(97, 123):
     if chr(alph) == 'q' or chr(alph) == 'e':
         continue
-    print(chr(alph), end='')
+    print("{}".format(chr(alph)), end='')
