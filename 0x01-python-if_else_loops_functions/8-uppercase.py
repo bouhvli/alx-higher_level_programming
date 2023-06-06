@@ -7,4 +7,4 @@ def uppercase(str):
             sil[i] = chr(lower - 32)
         else:
             continue
-    print(f"{''.join(sil)}")
+    print("{}".format(''.join(sil)))
