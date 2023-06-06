@@ -6,9 +6,9 @@ number = random.randint(-10000, 10000)
 def get_last(number):
     if number == 0:
         return 0
-    number = number % 10
     if number < 0:
         number = number * (-1)
+    number = number % 10
     return number
 
 
