@@ -23,7 +23,7 @@ if __name__ == "__main__":
     print(lenargvs)
     print(args)
     if lenargvs == 0 or lenargvs != 3:
-        print(f"Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
     else:
         switch(int(args[0]), args[1], int(args[2]))
