@@ -6,8 +6,11 @@ if __name__ == "__main__":
     if lenlist == 0:
         print("0 argument.")
     else:
-        print("{:d} argument:".format(lenlist))
+        if (lenlist == 1):
+            print("{} argument:".format(lenlist))
+        else:
+            print("{} arguments:".format(lenlist))
         i = 0
         while i < len(arguments):
-            print("{:d}: {}".format(i+1, arguments[i]))
+            print("{}: {}".format(i+1, arguments[i]))
             i += 1
