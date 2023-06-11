@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "lists.h"
 #include <stdbool.h>
-
 /**
  * is_palindrome - checks if a list of number if palindrome.
  * @head: the list we want to check.
@@ -10,52 +9,21 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp = *head;
-	listint_t *lsit = NULL;
-	listint_t *revl = NULL;
-	int size = size_of(tmp), i = 0;
+	int cmp = 0;
+	listint_t *tmp = NULL;
+	listint_t *old = *head;
 
 	if (*head == NULL)
 		return (1);
-	while (i < (size / 2))
-	{
-		add_nodeint_end(&lsit, tmp->n);
-		tmp = tmp->next;
-		i++;
-	}
-	while (i < size)
-	{
-		revl = add_start(&revl, tmp->n);
-		tmp = tmp->next;
-		i++;
-	}
-	i = 0;
-	while (i < (size / 2))
-	{
-		if(revl->n != lsit->n)
-			return (0);
-		revl = revl->next;
-		lsit = lsit->next;
-		i++;
-	}
-	return (1);
-}
-/**
- * size_of - determine the size of a lidt.
- * @h: the list head.
- * Return: the number of elements in a list.
-*/
-int size_of(listint_t *h)
-{
-	listint_t *tmp = h;
-	int count = 0;
 
-	while (tmp)
+	while (old != NULL)
 	{
-		count++;
-		tmp = tmp->next;
+		add_start(&tmp, old->n);
+		old = old->next;
 	}
-	return (count);
+	cmp = compare(*head, tmp);
+	free_listint(tmp);
+	return (cmp);
 }
 /**
  * add_start - as the name say.
@@ -64,20 +32,42 @@ int size_of(listint_t *h)
  * 	start.
  * Return: the list or NULL if somthing whent wrong.
  */
-listint_t *add_start(listint_t **head, const int value)
+listint_t *add_start(listint_t **head, int value)
 {
-	listint_t *new_node = NULL;
+	listint_t *new_node;
 
 	if (*head == NULL)
+	{
 		*head = add_nodeint_end(head, value);
-	else 
+	}
+	else
 	{
 		new_node = malloc(sizeof(listint_t));
-		if (new_node == NULL)
+		if (new_node != NULL)
+		{
+			new_node->n = value;
+			new_node->next = *head;
+			*head = new_node;
+		}
+		else
 			return (NULL);
-		new_node->n = value;
-		new_node->next = *head;
-		*head = new_node;
 	}
 	return (*head);
+}
+/**
+ * compare - compare 2 lists and if there is a dif it returns 0 else 1
+ * @h: the first list.
+ * @t: the second list.
+ * Return: 0 if there is a dif and 1 if not
+ */
+int compare(listint_t *h, listint_t *t)
+{
+	while (h != NULL && t != NULL)
+	{
+		if (h->n != t->n)
+			return (0);
+		h = h->next;
+		t = t->next;
+	}
+	return (1);
 }
