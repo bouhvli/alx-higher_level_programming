@@ -10,13 +10,13 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *tmp = NULL;
-	int table[1024];
+	int table[4500];
 	int idx = 0, idxrev = 0;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 	tmp = *head;
-	if (tmp == NULL)
+	if (tmp->next == NULL)
 		return (0);
 	while (tmp)
 	{
@@ -25,12 +25,11 @@ int is_palindrome(listint_t **head)
 		if (tmp != NULL)
 			idx++;
 	}
-	while (idx > 0)
+	while (idx > 0 && idxrev <= idx)
 	{
 		if (table[idx] != table[idxrev])
 			return (0);
-		idx--;
-		idxrev++;
+		idx--, idxrev++;
 	}
 	return (1);
 }
