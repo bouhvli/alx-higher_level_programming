@@ -9,65 +9,28 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int cmp = 0;
 	listint_t *tmp = NULL;
-	listint_t *old = *head;
+	int table[1024];
+	int idx = 0, idxrev = 0;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-
-	while (old != NULL)
+	tmp = *head;
+	if (tmp == NULL)
+		return (0);
+	while (tmp)
 	{
-		add_start(&tmp, old->n);
-		old = old->next;
+		table[idx] = tmp->n;
+		tmp = tmp->next;
+		if (tmp != NULL)
+			idx++;
 	}
-	cmp = compare(*head, tmp);
-	free_listint(tmp);
-	return (cmp);
-}
-/**
- * add_start - as the name say.
- * @head: takes the list.
- * @value: the value of the element we want to add to @head the list at the
- * 	start.
- * Return: the list or NULL if somthing whent wrong.
- */
-listint_t *add_start(listint_t **head, int value)
-{
-	listint_t *new_node;
-
-	if (*head == NULL)
+	while (idx > 0)
 	{
-		*head = add_nodeint_end(head, value);
-	}
-	else
-	{
-		new_node = malloc(sizeof(listint_t));
-		if (new_node != NULL)
-		{
-			new_node->n = value;
-			new_node->next = *head;
-			*head = new_node;
-		}
-		else
-			return (NULL);
-	}
-	return (*head);
-}
-/**
- * compare - compare 2 lists and if there is a dif it returns 0 else 1
- * @h: the first list.
- * @t: the second list.
- * Return: 0 if there is a dif and 1 if not
- */
-int compare(listint_t *h, listint_t *t)
-{
-	while (h != NULL && t != NULL)
-	{
-		if (h->n != t->n)
+		if (table[idx] != table[idxrev])
 			return (0);
-		h = h->next;
-		t = t->next;
+		idx--;
+		idxrev++;
 	}
 	return (1);
 }
