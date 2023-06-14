@@ -22,6 +22,10 @@ void print_python_list(PyObject *p)
 		element = lp->ob_item[idx];
 		tpNAme = (element)->ob_type->tp_name;
 		printf("Element %zd: %s\n", idx, tpNAme);
+		if (strcmp(tpNAme, "bytes") == 0)
+		{
+			print_python_bytes(lp->ob_item[idx]);
+		}
 	}
 }
 /**
@@ -43,7 +47,7 @@ void print_python_bytes(PyObject *p)
 			printf("  first %zd bytes:", length + 1);
 		else
 			printf("  first 10 bytes:");
-		for (idx = 0; idx < length && idx < 10; idx++)
+		for (idx = 0; idx <= length && idx < 10; idx++)
 		{
 			printf(" %02hhx", string[idx]);
 		}
