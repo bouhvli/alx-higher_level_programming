@@ -9,6 +9,8 @@ def roman_to_int(roman_string):
         "D": 500,
         "M": 1000
     }
+    if roman_string is not str:
+        return 0
     listint = [0] * len(roman_string)
     idx = 0
     for i in roman_string:
