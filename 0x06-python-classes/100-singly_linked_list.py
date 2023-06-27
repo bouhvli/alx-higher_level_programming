@@ -11,9 +11,7 @@ class Node:
         __next_node (Node): hold the next node.
     """
     def __init__(self, data, next_node=None):
-        self.__data = None
         self.data = data
-        self.__next_node = None
         self.next_node = next_node
 
     @property
@@ -33,7 +31,7 @@ class Node:
             __data (int): the value of the node.
         """
         if (not isinstance(value, int)):
-            raise TypeError("data must be an intege")
+            raise TypeError("data must be an integer")
         self.__data = value
 
     @property
