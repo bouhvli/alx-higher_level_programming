@@ -59,9 +59,12 @@ class Square:
         Attributes:
             __position (tuple): Private instance attribute
         """
-        if ((type(value) != tuple) and (value[0] < 0) and
-                (value[1] < 0) and (len(value) != 2)):
+        if ((type(value) != tuple) and (len(value) != 2)):
             raise TypeError("position must be a tuple of 2 positive integers")
+        for val in value:
+            if type(val) != int or val < 0:
+                raise TypeError("position must be a tuple of 2 positive " +
+                                "integers")
         self.__position = value
 
     def area(self):
