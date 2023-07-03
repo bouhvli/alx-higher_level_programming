@@ -15,8 +15,8 @@ class Rectangle:
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
-        self.height = height
-        self.width = width
+        self.__height = height
+        self.__width = width
         Rectangle.number_of_instances += 1
 
     def __del__(self):
@@ -70,6 +70,10 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         else:
             self.__width = value
+
+    @classmethod
+    def square(cls, size=0):
+        return Rectangle(size, size)
 
     def area(self):
         """
@@ -150,16 +154,3 @@ class Rectangle:
             else:
                 return rect_1
 
-    @classmethod
-    def square(cls, size=0):
-        """
-        Class method def square(cls, size=0): that returns a new
-        Rectangle instance with width == height == size
-
-        Args:
-            size (int): the size of the rectagle.
-
-        Returns:
-            (Rectangle): rectangle with the given size.
-        """
-        return Rectangle(size, size)
