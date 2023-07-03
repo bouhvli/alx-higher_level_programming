@@ -128,6 +128,7 @@ class Rectangle:
     def __repr__(self):
         return ("Rectangle({}, {})".format(self.__width, self.__height))
 
+    staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """
         a function that returns the biggest rectangle based on the area
