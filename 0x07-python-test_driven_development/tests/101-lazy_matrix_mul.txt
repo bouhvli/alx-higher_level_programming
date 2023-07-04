@@ -1,0 +1,47 @@
+=================================================
+Lazy Matrix Multiplication Module - External Documentation
+=================================================
+Introduction:
+The `101-lazy_matrix_mul` module provide a function called `lazy_matrix_mul`
+It's a function that multiplies 2 matrices 
+
+Test Cases:
+-----------
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+>>> matrix1 = [[1, 2], [3, 4], [5, 6]]
+>>> matrix2 = [[1, 2], [3, 4, 4]]
+>>> result_matrix = lazy_matrix_mul(matrix1, matrix2)
+setting an array element with a sequence.
+>>> print(lazy_matrix_mul([[1.9, 2.7], [3.5, 4.2], [2.2, 3.5]], [[1, 2, 3], [3, 4, 3]]))
+[[10.  14.6 13.8]
+ [16.1 23.8 23.1]
+ [12.7 18.4 17.1]]
+>>> B = [[],
+...     [],
+...     [],
+...     [],]
+>>> 
+>>> A = [[7, 8, 8, 8],
+...     [9, 10, 10, 9],
+...     [11, 12, 11, 12]]
+>>> print(lazy_matrix_mul(A, B))
+[]
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4, 3]]))
+setting an array element with a sequence.
+None
+>>> print(lazy_matrix_mul([[1, 2], [3, 4], [2, "q"]], [[1, 2, 3], [3, 4, 3]]))
+data type must provide an itemsize
+None
+>>> print(lazy_matrix_mul([[1.9, 2.7], [3.5, 4.2], [2.2, 3.5]], [[1, 2, 3], [3, 4, 3]]))
+[[10.  14.6 13.8]
+ [16.1 23.8 23.1]
+ [12.7 18.4 17.1]]
+>>> matrix = "string"
+>>> matrix_1 = [[1, 2], [3, 4]]
+>>> lazy_matrix_mul(matrix, matrix_1)
+ufunc 'multiply' did not contain a loop with signature matching types dtype('<U6') dtype('<U6') dtype('<U6')
