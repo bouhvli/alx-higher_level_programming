@@ -1,0 +1,55 @@
+=================================================
+Matrix divided Module - External Documentation
+=================================================
+Introduction:
+-------------
+The `2-matrix_divided` module provide a function `matrix_divided` that
+perform division on all the matrix elements if the matrix is a matrix
+and each row have the same size, and each element or value in the matrix
+is float or integer, and div is != 0 and it is a number.
+
+    Args:
+    matrix (list): the matrix input value
+    div (int, float): the div input value.
+
+    Returns:
+    list : the new matrix with the result of the division of all
+    elements on div.
+
+Test Cases:
+-----------
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> matrix_divided([[1.7, 2, 3.2], [4.9, 5, 6]], 2.4)
+[[0.71, 0.83, 1.33], [2.04, 2.08, 2.5]]
+>>> matrix_divided([(2,3,4), (5,4,3)], 5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 32, in matrix_divided
+    raise TypeError("matrix must be a matrix (list of lists) "
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([], 'y')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 24, in matrix_divided
+    raise TypeError("matrix must be a matrix (list of lists) "
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[1.7, 2, 3.2], [4.9, 5, 6]], 2)
+[[0.85, 1.0, 1.6], [2.45, 2.5, 3.0]]
+>>> matrix_divided([[1.7, 2.4, 3.2], [4.9, 5.8, 6.5]], 2)
+[[0.85, 1.2, 1.6], [2.45, 2.9, 3.25]]
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> matrix_divided([[1.7, 2, 3.2], [4.9, 5, 6]], 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 27, in matrix_divided
+    raise ZeroDivisionError("division by zero")
+ZeroDivisionError: division by zero
+>>> matrix_divided([[1.7, 2, 3.2], [4.9, 5, 6], (2, 3, 5)], 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 32, in matrix_divided
+    raise TypeError("matrix must be a matrix (list of lists) "
+TypeError: matrix must be a matrix (list of lists) of integers/floats

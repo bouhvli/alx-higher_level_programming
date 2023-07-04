@@ -1,0 +1,55 @@
+=================================================
+Say My Name Module - External Documentation
+=================================================
+Introduction:
+-------------
+The `3-say_my_name` module offers a function `say_my_name` that will print
+"My name is" followed by the first name and last name provided to the function.
+
+Test cases:
+-----------
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("hamza", "bouhali")
+My name is hamza bouhali
+>>> say_my_name("hamza7", "bouhali")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 27, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+>>> say_my_name("hamza", "bouhali7")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 30, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+>>> say_my_name("hamza ", "bouhali")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 27, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+>>> say_my_name("hamza", "bouhali ")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 30, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+>>> say_my_name("3", "3")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 27, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+>>> say_my_name("hamza", 8)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 24, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+>>> say_my_name("", "bouhali")
+My name is  bouhali
+>>> say_my_name("hamza")
+My name is hamza 
+>>> say_my_name("ハムザ")
+My name is ハムザ 

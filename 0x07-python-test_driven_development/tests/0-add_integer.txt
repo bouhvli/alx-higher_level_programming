@@ -1,0 +1,61 @@
+=================================================
+Add integer Module - External Documentation
+=================================================
+Introduction:
+-------------
+The `0-add_integer` module provide a function `add_integer` as
+the name says it will add two integer values, but it can accept float
+numbers, it will convert them into integers and after the perform the
+addition,and return the result.
+
+Test cases:
+-----------
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(0.1, 2.3)
+2
+>>> add_integer(0.1, -2.3)
+-2
+>>> add_integer(6, -2.3)
+4
+>>> add_integer(6, 2.3)
+8
+>>> add_integer(6.5, 2)
+8
+>>> add_integer(None, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 13, in add_integer
+    This function perform the addition of two integers, if
+TypeError: a must be an integer
+>>> add_integer(98, None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(1)
+99
+>>> add_integer(111111111111111, 2222222222222222222)
+2222333333333333333
+>>> add_integer(-6.5, -2)
+-8
+>>> add_integer(-6.5, 2)
+-4
+>>> add_integer(0, 0)
+0
+>>> add_integer(1, 1)
+2
+>>> add_integer(-111111111111111, -2222222222222222222)
+-2222333333333333333
+>>> add_integer(float("inf"), 1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 18, in add_integer
+    b (int, float): the second input value.
+OverflowError: cannot convert float infinity to integer
