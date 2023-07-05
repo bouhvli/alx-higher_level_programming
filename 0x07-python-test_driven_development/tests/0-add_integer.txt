@@ -63,3 +63,9 @@ OverflowError: cannot convert float infinity to integer
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'NaN' is not defined
+>>> add_integer(0, float('nan'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 35, in add_integer
+    valb = int(b)
+ValueError: cannot convert float NaN to integer
