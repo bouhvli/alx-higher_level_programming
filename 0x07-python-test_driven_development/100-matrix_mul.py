@@ -2,6 +2,7 @@
 """The matrix_mul module has a method matrix_mul
     matrix_mul = __import__('100-matrix_mul').matrix_mul"""
 
+
 def check_error(matrix, tp_er, ll_er, sz_er, em_er):
     for row in matrix:
         if type(row) is not list:
@@ -13,6 +14,7 @@ def check_error(matrix, tp_er, ll_er, sz_er, em_er):
         for col in row:
             if type(col) not in [int, float]:
                 raise TypeError(tp_er)
+
 
 def matrix_mul(m_a, m_b):
     """this is a function that multiplies 2 matrices
