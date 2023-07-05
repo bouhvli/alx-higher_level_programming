@@ -74,3 +74,7 @@ TypeError: text must be a string
 >>> text_indentation("ハムザ.")
 ハムザ.
 <BLANKLINE>
+>>> text_indentation()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: text_indentation() missing 1 required positional argument: 'text'
