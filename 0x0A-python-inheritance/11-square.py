@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+"""task 11: this module has a class Square that inherits from
+Rectangle"""
+
+
+Rectangle = __import__('9-rectangle').Rectangle
+
+
+class Square(Rectangle):
+    """ a class Square that inherits from Rectangle
+    (9-rectangle.py)"""
+    def __init__(self, size):
+        """the constructor for the square class this will
+        validate the number"""
+        super().integer_validator("size", size)
+        self.__size = size
+
+    def area(self):
+        """overrding the Public instance method: def area(self): that
+        raises an Exception with the message area() is not
+        implemented"""
+        return (self.__size * self.__size)
+
+    def __str__(self):
+        """str() will return, the square description:
+        [Square] <width>/<height>"""
+        return ("[Square] {}/{}".format(self.__size, self.__size))

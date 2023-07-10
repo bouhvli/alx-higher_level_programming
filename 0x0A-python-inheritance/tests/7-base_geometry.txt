@@ -1,0 +1,42 @@
+=================================================
+Base Geometry Module - External Documentation
+=================================================
+Introduction:
+-------------
+The `7-base_geometry` module provide a class `Geometry` it has
+two methods area that calculate the area and integer_validator
+that will validate a number in its is an int.
+
+Test cases:
+-----------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> geo = BaseGeometry()
+>>> geo.area()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 13, in area
+    raise Exception("area() is not implemented")
+Exception: area() is not implemented
+>>> geo.integer_validator("width", "98")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: width must be an integer
+>>> geo.integer_validator("width", 98)
+>>> geo.integer_validator("height", -98)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 28, in integer_validator
+    raise ValueError("{} must be greater than 0".format(name))
+ValueError: height must be greater than 0
+>>> geo.integer_validator("lenght", 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 28, in integer_validator
+    raise ValueError("{} must be greater than 0".format(name))
+ValueError: lenght must be greater than 0
+>>> geo = BaseGeometry(12, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry() takes no arguments
