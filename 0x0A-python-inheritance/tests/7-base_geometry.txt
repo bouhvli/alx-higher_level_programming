@@ -49,3 +49,73 @@ ValueError: invalid literal for int() with base 10: 'inf'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
+>>> type(BaseGeometry.__dict__['area'])
+<class 'function'>
+>>> geo = BaseGeometry()
+>>> geo.__class__.area()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: area() missing 1 required positional argument: 'self'
+>>> geo.area(10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: area() takes 1 positional argument but 2 were given
+>>> type(BaseGeometry.__dict__['integer_validator'])
+<class 'function'>
+>>> geo.__class__.integer_validator()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 3 required positional arguments: 'self', 'name', and 'value'
+>>> geo.integer_validator()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> geo.integer_validator(1, 1, 1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+>>> geo.integer_validator("food", 3.0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: food must be an integer
+>>> geo.integer_validator("food", "essen")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: food must be an integer
+>>> geo.integer_validator("food", None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: food must be an integer
+>>> geo.integer_validator("food", 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 28, in integer_validator
+    raise ValueError("{} must be greater than 0".format(name))
+ValueError: food must be greater than 0
+>>> geo.integer_validator("food", -10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 28, in integer_validator
+    raise ValueError("{} must be greater than 0".format(name))
+ValueError: food must be greater than 0
+>>> geo.integer_validator("food", 10)
+>>> geo.integer_validator("", 10)
+>>> geo.integer_validator(None, 10)
+>>> geo.integer_validator("food", (10, 9))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: food must be an integer
+>>> geo.integer_validator("food", {10, 9})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 26, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: food must be an integer
