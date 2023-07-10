@@ -22,6 +22,51 @@ Test cases:
 >>> ma_list.print_sorted()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
+  File "<stdin>", line 12, in print_sorted
+    print(sorted(self))
+TypeError: '<' not supported between instances of 'str' and 'int'
+>>> ma_list = MyList([-3, -2, -1, -2, -3])
+>>> ma_list.print_sorted()
+[-3, -3, -2, -2, -1]
+>>> ma_list = MyList([-3.435, -2.5, -1.01, -2.6, -3.4])
+>>> ma_list.print_sorted()
+[-3.435, -3.4, -2.6, -2.5, -1.01]
+>>> ma_list.append(0)
+>>> ma_list.print_sorted()
+[-3.435, -3.4, -2.6, -2.5, -1.01, 0]
+>>> ma_list.append(13)
+>>> ma_list.print_sorted()
+[-3.435, -3.4, -2.6, -2.5, -1.01, 0, 13]
+>>> ma_list = MyList([3, 3, 3, 3, 3])
+>>> ma_list.print_sorted()
+[3, 3, 3, 3, 3]
+>>> ma_list.append(10000000000000000000000000000000)
+>>> ma_list.print_sorted()
+[3, 3, 3, 3, 3, 10000000000000000000000000000000]
+>>> ma_list.append(None)
+>>> ma_list.print_sorted()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 12, in print_sorted
+    print(sorted(self))
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+>>> ma_list.append(NULL)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'NULL' is not defined
+>>> ma_list = MyList()
+>>> ma_list.print_sorted()
+[]
+>>> ma_list = MyList([3])
+>>> ma_list.print_sorted()
+[3]
+>>> ma_list = MyList([3, 2, 1, 2, 3])
+>>> ma_list.print_sorted()
+[1, 2, 2, 3, 3]
+>>> ma_list = MyList([42, 'apple', True, 3.14])
+>>> ma_list.print_sorted()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
   File "<stdin>", line 4, in print_sorted
     print(sorted(self))
 TypeError: '<' not supported between instances of 'str' and 'int'
