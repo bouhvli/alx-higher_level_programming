@@ -100,3 +100,9 @@ NameError: name 'NULL' is not defined
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: invalid literal for int() with base 10: 'inf'
+>>> ma_list = MyList()
+>>> isinstance(ma_list, list)
+True
+>>> ma_list.append(10)
+>>> type(ma_list) == MyList
+True
