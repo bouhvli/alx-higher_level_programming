@@ -106,6 +106,7 @@ True
 >>> ma_list.append(10)
 >>> type(ma_list) == MyList
 True
+>>> ma_list = MyList()
 >>> print(ma_list)
 []
 >>> ma_list.print_sorted()
