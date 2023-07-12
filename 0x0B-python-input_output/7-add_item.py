@@ -1,6 +1,6 @@
-#!/usr/bin/python3#!/usr/bin/python3
+#!/usr/bin/python3
 """
-Task 0: read file and print it
+Task 7: Load, add, save
 """
 
 
