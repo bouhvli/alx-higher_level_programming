@@ -54,16 +54,21 @@ class Base:
         if (class_name == "Square"):
             my_dict = cls(10, 10)
             my_dict.update(**dictionary)
+        else:
+            my_dict = None
             return (my_dict)
 
     @classmethod
     def load_from_file(cls):
         """this function will load the objects from file"""
+        from os import path
         list_obj = []
         file_name = cls.__name__ + ".json"
+        if not path.isfile(file_name):
+            return []
         with open(file_name, "r") as file:
             line = file.readline()
             string = cls.from_json_string(line)
             for item in string:
                 list_obj.append(cls.create(**item))
-        return list_obj
+            return list_obj
