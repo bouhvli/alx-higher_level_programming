@@ -84,8 +84,8 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle(5**4, 7**3, 2**2, 8**12)
         dictionary_2 = r2.to_dictionary()
         json_dictionary_2 = Base.to_json_string([dictionary_2])
-        check = '[{"id": 1, "height": 343,\
-        "width": 625,"x": 4, "y": 68719476736}]'
+        check = '[{"id": 1, "height": 343, '\
+                '"width": 625, "x": 4, "y": 68719476736}]'
         self.assertEqual(json_dictionary_2, check)
         self.assertEqual(len(json_dictionary_2), len(check))
         check = [{"id": 23}, {"life": 33}, {"cust": 12, "rest": 34}]
