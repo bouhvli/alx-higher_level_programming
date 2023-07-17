@@ -48,14 +48,12 @@ class Base:
         """this will create an object from the class"""
         class_name = cls.__name__
         if (class_name == "Rectangle"):
-            my_dict = cls(10, 10)
+            my_dict = cls(1, 1)
             my_dict.update(**dictionary)
             return (my_dict)
         if (class_name == "Square"):
-            my_dict = cls(10, 10)
+            my_dict = cls(1)
             my_dict.update(**dictionary)
-        else:
-            my_dict = None
             return (my_dict)
 
     @classmethod
