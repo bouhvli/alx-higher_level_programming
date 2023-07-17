@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """this model will create the base model"""
 import json
+import csv
 
 
 class Base:
@@ -69,4 +70,49 @@ class Base:
             string = cls.from_json_string(line)
             for item in string:
                 list_obj.append(cls.create(**item))
+            return list_obj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if (list_objs is None):
+            list_objs = []
+
+        file_name = cls.__name__ + ".csv"
+        if cls is Square:
+            list_objs = [[el.id, el.size, el.x, el.y]
+                         for el in list_objs]
+        elif cls is Rectangle:
+            list_objs = [[el.id, el.width, el.height, el.x, el.y]
+                         for el in list_objs]
+        with open(file_name, "w", encoding="UTF-8") as file:
+            printer = csv.writer(file)
+            printer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """this function will load the objects from file"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        list_obj = []
+        file_name = cls.__name__ + ".csv"
+        with open(file_name, "r", newline='', encoding="UTF-8") as file:
+            test = csv.reader(file)
+            for row in test:
+                if len(row) < 4:
+                    return []
+                row = [int(item) for item in row]
+                if (cls is Square):
+                    res = {
+                        "id": row[0], "size": row[1],
+                        "x": row[2], "y": row[3]
+                        }
+                else:
+                    res = {
+                        "id": row[0], "width": row[1],
+                        "height": row[2], "x": row[3],
+                        "y": row[4]
+                        }
+                list_obj.append(cls.create(**res))
             return list_obj
