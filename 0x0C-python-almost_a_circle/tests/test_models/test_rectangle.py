@@ -35,6 +35,10 @@ class TestRectangle(unittest.TestCase):
             rc = Rectangle(1, 2, 3, 4, 5, 6, 7)
         with self.assertRaises(TypeError):
             rc = Rectangle(2)
+        self.assertEqual(Rectangle(1, 2).__str__(),
+                         '[Rectangle] (6) 0/0 - 1/2')
+        self.assertEqual(Rectangle(1, 2, 3).__str__(),
+                         '[Rectangle] (7) 3/0 - 1/2')
 
     def test_attr(self):
         """test the object representation"""
@@ -170,6 +174,18 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(std.getvalue(), res)
         with self.assertRaises(TypeError):
             Rectangle.display()
+        r4 = Rectangle(1, 2)
+        std = io.StringIO()
+        with redirect_stdout(std):
+            res = "#\n#\n"
+            r4.display()
+            self.assertEqual(std.getvalue(), res)
+        r5 = Rectangle(1, 2, 3)
+        std = io.StringIO()
+        with redirect_stdout(std):
+            res = "   #\n   #\n"
+            r5.display()
+            self.assertEqual(std.getvalue(), res)
 
     def test_str(self):
         """this for testing the print"""

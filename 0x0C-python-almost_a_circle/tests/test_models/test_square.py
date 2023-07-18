@@ -47,6 +47,10 @@ class TestSquare(unittest.TestCase):
             rc = Square(1, 2, 3, 4, 5, 6, 7)
         with self.assertRaises(TypeError):
             rc = Square()
+        self.assertEqual(Square(1).__str__(),
+                         "[Square] (6) 0/0 - 1")
+        self.assertEqual(Square(1, 2).__str__(),
+                         "[Square] (7) 2/0 - 1")
 
     def test_attr(self):
         """Testing the representation of the object"""
