@@ -152,11 +152,18 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+
+    def test_save_to_file_edge_case(self):
+        """test the function save_to_file for some edge cases"""
         Rectangle.save_to_file([Rectangle(1, 2)])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(),
                              '[{"id": 1, "height": 2, "width": 1, '\
                              '"x": 0, "y": 0}]')
+        Square.save_to_file([Square(1)])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(),
+                             '[{"id": 2, "size": 1, "x": 0, "y": 0}]')
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
