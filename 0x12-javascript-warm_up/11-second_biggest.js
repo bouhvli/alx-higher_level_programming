@@ -9,6 +9,6 @@ if (process.argv.length <= 3) { console.log('0'); } else {
     }
     return 0;
   });
-  array.sort();
+  array.sort((x, y) => x - y);
   console.log(array[array.length - 2]);
 }
