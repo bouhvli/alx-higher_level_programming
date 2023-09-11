@@ -1,14 +1,5 @@
 #!/usr/bin/node
 if (process.argv.length <= 3) { console.log(0); } else {
-  const array = [];
-  process.argv.flatMap(function (n) {
-    const vn = parseInt(n);
-    if (!isNaN(vn)) {
-      array.push(Number(vn));
-      return Number(vn);
-    }
-    return 0;
-  });
-  array.sort();
+  const array = process.argv.sort();
   console.log(array[array.length - 2]);
 }
