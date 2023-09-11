@@ -1,6 +1,5 @@
 #!/usr/bin/node
-import { argv } from 'node:process';
-const a = argv[2];
+const a = process.argv[2];
 const vl = parseInt(a);
 if (!isNaN(vl)) {
   for (let index = 0; index < Number(vl); index++) {

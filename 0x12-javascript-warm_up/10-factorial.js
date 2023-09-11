@@ -1,6 +1,5 @@
 #!/usr/bin/node
-import { argv } from 'node:process';
-const av = argv[2];
+const av = process.argv[2];
 const vl = parseInt(av);
 if (!isNaN(vl)) { console.log(`${fact(Number(vl))}`); } else { console.log(1); }
 

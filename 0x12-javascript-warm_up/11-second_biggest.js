@@ -1,8 +1,7 @@
 #!/usr/bin/node
-import { argv } from 'node:process';
-if (argv.length <= 3) { console.log(0); } else {
+if (process.argv.length <= 3) { console.log(0); } else {
   const array = [];
-  argv.flatMap(function (n) {
+  process.argv.flatMap(function (n) {
     const vn = parseInt(n);
     if (!isNaN(vn)) {
       array.push(Number(vn));
