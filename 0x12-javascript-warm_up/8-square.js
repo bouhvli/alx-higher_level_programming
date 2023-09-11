@@ -9,4 +9,4 @@ if (!isNaN(vl)) {
     }
     console.log(output);
   }
-} else { console.log('Missing number of occurrences'); }
+} else { console.log('Missing size'); }
