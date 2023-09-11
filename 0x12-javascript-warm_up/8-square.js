@@ -5,7 +5,7 @@ if (!isNaN(vl)) {
   for (let index = 0; index < Number(vl); index++) {
     let output = '';
     for (let jdx = 0; jdx < Number(vl); jdx++) {
-      output += '#';
+      output += 'X';
     }
     console.log(output);
   }
