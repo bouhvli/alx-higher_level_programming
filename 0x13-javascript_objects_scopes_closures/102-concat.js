@@ -4,7 +4,7 @@ const fileSystem = require('fs');
 const concat = (fileOne, fileTwo, concatenatedFile) => {
   const contentFileOne = fileSystem.readFileSync(fileOne);
   const contentFileTwo = fileSystem.readFileSync(fileTwo);
-  const concatenatContent = contentFileOne + '\n' + contentFileTwo;
+  const concatenatContent = contentFileOne + contentFileTwo;
   fileSystem.writeFileSync(concatenatedFile, concatenatContent);
 };
 if (argv.length === 3) {
