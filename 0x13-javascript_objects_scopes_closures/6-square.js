@@ -4,7 +4,11 @@ const NewSquare = require('./5-square');
 class Square extends NewSquare {
   charPrint (c) {
     for (let index = 0; index < this.height; index++) {
-      if (c === undefined) { console.log('X'.repeat(this.width)); } else { console.log(c.repeat(this.width)); }
+      let line = '';
+      for (let jdx = 0; jdx < this.width; jdx++) {
+        if (c === undefined) { line += 'X'; } else { line += c; }
+      }
+      console.log(line);
     }
   }
 }
