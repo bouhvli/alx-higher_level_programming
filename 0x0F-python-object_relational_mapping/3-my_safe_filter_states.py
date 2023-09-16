@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
     this module has a script that lists all states from a database,
-    where name matches the argument. using MySQLdb module.
+    where name matches the argument. But safe from MySQL injections
+    using MySQLdb module.
 
     Functions:
     establising_connection(): works as the name says connect to the MySQL db.
@@ -13,15 +14,15 @@ import re
 
 
 def escape(string):
-  """
-  this function will check the if the given argument safe from MySQL
-  injections.
-  Returns:
-      a string safe from MySQL injections.
-  """
-  characters = r'[\'\"\\]'
-  escape_char = r'\\\\\\1'
-  return re.sub(characters, escape_char, string)
+    """
+    this function will check the if the given argument safe from MySQL
+    injections.
+    Returns:
+        a string safe from MySQL injections.
+    """
+    characters = r'[\'\"\\]'
+    escape_char = r'\\\\\\1'
+    return re.sub(characters, escape_char, string)
 
 
 def establising_connection():
