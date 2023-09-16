@@ -17,5 +17,5 @@ if __name__ == '__main__':
         sel = select(State).where(State.name.ilike("%a%")).order_by(State.id)
         r = connection.execute(sel)
         for row in r:
-            print("{}:{}".format(row.id, row.name))
+            print("{}: {}".format(row.id, row.name))
     connection.close()
