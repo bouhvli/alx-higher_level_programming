@@ -34,7 +34,7 @@ def result():
     db = establising_connection()
     cur = db.cursor()
     query = 'SELECT id, name FROM states WHERE'\
-            '`name` = "{}" ORDER BY id ASC'.format(sys.argv[4])
+            '`name` LIKE BINARY "{}" ORDER BY id ASC'.format(sys.argv[4])
     cur.execute(query)
     res = cur.fetchall()
     cur.close()
