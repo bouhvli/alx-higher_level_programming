@@ -36,6 +36,8 @@ def result():
     cur.execute(
         "SELECT * FROM `states` WHERE `name` LIKE 'N%'  ORDER BY `id` ASC")
     res = cur.fetchall()
+    cur.close()
+    db.close()
     return res
 
 
