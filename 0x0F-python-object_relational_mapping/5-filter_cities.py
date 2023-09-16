@@ -34,8 +34,7 @@ def result():
     db = establising_connection()
     cur = db.cursor()
     cur.execute(
-        'SELECT c.name FROM cities c, states s WHERE s.name = "{}" '
-        'AND state_id = s.id ORDER BY c.id ASC'.format(sys.argv[4]))
+        'SELECT c.name FROM cities c, states s WHERE s.name = "{}" AND state_id = s.id ORDER BY c.id ASC'.format(sys.argv[4]))
     res = cur.fetchall()
     cur.close()
     db.close()
