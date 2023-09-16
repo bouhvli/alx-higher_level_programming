@@ -34,7 +34,8 @@ def result():
     db = establising_connection()
     cur = db.cursor()
     cur.execute(
-        'SELECT c.name FROM cities c, states s WHERE s.name = "{}" AND state_id = s.id ORDER BY c.id ASC'.format(sys.argv[4]))
+        'SELECT c.name FROM cities c, states s WHERE s.name = "{}" '
+        'AND state_id = s.id ORDER BY c.id ASC'.format(sys.argv[4]))
     res = cur.fetchall()
     cur.close()
     db.close()
@@ -42,12 +43,6 @@ def result():
 
 
 if __name__ == '__main__':
-    i = 0
-    for row in result():
-        length = len(result())
-        for col in row:
-            print(col, end='')
-            i += 1
-            if (length != i):
-                print('', end=', ')
-    print()
+    rows = result()
+    item = list(row[0] for row in rows)
+    print(", ".join(item))
