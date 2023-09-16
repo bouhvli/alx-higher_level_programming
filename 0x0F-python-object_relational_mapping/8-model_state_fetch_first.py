@@ -20,6 +20,7 @@ if __name__ == '__main__':
     r = connection.execute(sel)
     row = r.fetchone()
     if row is None:
-        print('Nothing')
+        print("Nothing")
     else:
-        print("{}:{}".format(row.id, row.name))
+        print("{}: {}".format(row.id, row.name))
+    connection.close()
