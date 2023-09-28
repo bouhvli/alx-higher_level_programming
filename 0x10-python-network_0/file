@@ -1,0 +1,14 @@
+#!/bin/bash
+
+file_name=$1
+
+# Create the file
+touch "$file_name"
+
+# Change the permission of the file to executable
+chmod u+x "$file_name"
+echo "#!/bin/bash" > "$file_name"
+# Print a message to the user
+echo "|---------------------------------------------------------------------------------|"
+echo "|File -|$file_name|- created and permission changed to executable"
+echo "|---------------------------------------------------------------------------------|"
