@@ -8,8 +8,8 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    repo = argv[2]
-    owner = argv[1]
+    repo = argv[1]
+    owner = argv[2]
 
     git_res = get('https://api.github.com/repos/{}/{}/commits'
                   .format(owner, repo))
