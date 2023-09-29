@@ -18,10 +18,13 @@ if __name__ == '__main__':
     res = requests.post(url, data=data)
     json = res._content.decode('utf-8')
 
-    if (len(json)):
-        if (isinstance(json, str)):
-            json = eval(json)
-            print('[{}] {}'.format(json['id'], json['name']))
+    if (json):
+        json = eval(json)
+        if (isinstance(json, dict)):
+            if len(json) != 0:
+                print('[{}] {}'.format(json['id'], json['name']))
+            else:
+                print('No result')
         else:
             print('Not a valid JSON')
     else:
