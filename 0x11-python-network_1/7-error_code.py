@@ -7,7 +7,7 @@ from requests.exceptions import HTTPError
 
 if __name__ == '__main__':
     try:
-        res = requests(argv[1]) as res:
-            print(res.read().decode('utf-8'))
+        res = requests(argv[1])
+        print(res.__dict__)
     except HTTPError as er:
         print('Error code: {}'.format(er.code))
