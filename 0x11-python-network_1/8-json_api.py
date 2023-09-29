@@ -10,7 +10,7 @@ from sys import argv
 
 if __name__ == '__main__':
     url = "http://0.0.0.0:5000/search_user"
-    if len(argv) == 2:
+    if len(argv) != 1:
         data = {'q': argv[1]}
     else:
         data = {'q': ""}
@@ -18,14 +18,11 @@ if __name__ == '__main__':
     res = requests.post(url, data=data)
     json = res._content.decode('utf-8')
 
-    if (json):
+    try:
         json = eval(json)
-        if (isinstance(json, dict)):
-            if len(json) != 0:
-                print('[{}] {}'.format(json['id'], json['name']))
-            else:
-                print('No result')
+        if len(json) != 0:
+            print('[{}] {}'.format(json['id'], json['name']))
         else:
-            print('Not a valid JSON')
-    else:
-        print('No result')
+            print('No result')
+    except ValueError:
+        print('Not a valid JSON')
