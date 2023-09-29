@@ -15,13 +15,13 @@ if __name__ == '__main__':
     else:
         data = {'q': ""}
 
-    res = requests.get(url, data=data)
+    res = requests.post(url, data=data)
     json = res._content.decode('utf-8')
 
     if (len(json)):
-        if (isinstance(json, dict)):
-            key, value = json.values()
-            print('[{}] {}'.format(key, value))
+        if (isinstance(json, str)):
+            json = eval(json)
+            print('[{}] {}'.format(json['id'], json['name']))
         else:
             print('Not a valid JSON')
     else:
