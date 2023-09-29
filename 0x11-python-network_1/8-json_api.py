@@ -20,9 +20,9 @@ if __name__ == '__main__':
 
     if (len(json)):
         if (isinstance(json, dict)):
-            key , value = json.values()
+            key, value = json.values()
             print('[{}] {}'.format(key, value))
-        else: 
+        else:
             print('Not a valid JSON')
     else:
         print('No result')
