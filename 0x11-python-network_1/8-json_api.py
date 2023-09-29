@@ -16,9 +16,9 @@ if __name__ == '__main__':
         data = {'q': ""}
 
     res = requests.post(url, data=data)
-    json = res.json()
 
     try:
+        json = res.json()
         if json != {}:
             print('[{}] {}'.format(json.get("id"), json.get("name")))
         else:
