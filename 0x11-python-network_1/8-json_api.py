@@ -16,12 +16,11 @@ if __name__ == '__main__':
         data = {'q': ""}
 
     res = requests.post(url, data=data)
-    json = res._content.decode('utf-8')
+    json = res.json()
 
     try:
-        json = eval(json)
-        if len(json) != 0:
-            print('[{}] {}'.format(json['id'], json['name']))
+        if json != {}:
+            print('[{}] {}'.format(json.get("id"), json.get("name")))
         else:
             print('No result')
     except ValueError:
