@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""""""
+"""sends a request to the URL and
+displays the body of the response (decoded in utf-8).
+"""
 from sys import argv
 from urllib.request import urlopen
 from urllib.error import HTTPError
